@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ExtenDash snapshot (v1)",
+  "description": "Canonical state of one source at snapshots/<sourceId>.json. Written only by compaction.",
+  "type": "object",
+  "required": ["schemaVersion", "sourceId", "compactedAt", "records"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "sourceId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9.-]{0,63}$" },
+    "compactedAt": { "type": "string", "format": "date-time" },
+    "records": {
+      "type": "array",
+      "description": "Sorted by id.",
+      "items": { "$ref": "record.schema.json" }
+    }
+  },
+  "additionalProperties": false
+}

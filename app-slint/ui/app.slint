@@ -1,0 +1,23 @@
+import { AboutSlint, VerticalBox } from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+    title: "ExtenDash";
+    preferred-width: 800px;
+    preferred-height: 600px;
+
+    in property <int> schema-version;
+
+    VerticalBox {
+        Text {
+            text: "ExtenDash";
+            font-size: 24px;
+        }
+
+        Text {
+            text: "Dashboard placeholder (data schema v\{root.schema-version})";
+        }
+
+        // Required attribution for Slint's royalty-free license.
+        AboutSlint { }
+    }
+}
